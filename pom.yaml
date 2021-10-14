@@ -1,0 +1,78 @@
+project:
+  modelVersion: 4.0.0
+  groupId: com.example
+  artifactId: aa
+  version: 1.0-SNAPSHOT
+  name: aa
+  properties:
+    project.build.sourceEncoding: UTF-8
+    junit.version: 5.7.1
+  dependencies:
+    dependency:
+      - groupId: org.openjfx
+        artifactId: javafx-controls
+        version: 16
+      - groupId: org.openjfx
+        artifactId: javafx-fxml
+        version: 16
+      - groupId: org.openjfx
+        artifactId: javafx-web
+        version: 16
+      - groupId: org.controlsfx
+        artifactId: controlsfx
+        version: 11.1.0
+      - groupId: com.dlsc.formsfx
+        artifactId: formsfx-core
+        version: 11.3.2
+        exclusions:
+          exclusion:
+            groupId: org.openjfx
+            artifactId: '*'
+      - groupId: net.synedra
+        artifactId: validatorfx
+        version: 0.1.13
+        exclusions:
+          exclusion:
+            groupId: org.openjfx
+            artifactId: '*'
+      - groupId: org.kordamp.ikonli
+        artifactId: ikonli-javafx
+        version: 12.2.0
+      - groupId: org.kordamp.bootstrapfx
+        artifactId: bootstrapfx-core
+        version: 0.4.0
+      - groupId: eu.hansolo
+        artifactId: tilesfx
+        version: 11.48
+        exclusions:
+          exclusion:
+            groupId: org.openjfx
+            artifactId: '*'
+      - groupId: org.junit.jupiter
+        artifactId: junit-jupiter-api
+        version: ${junit.version}
+        scope: test
+      - groupId: org.junit.jupiter
+        artifactId: junit-jupiter-engine
+        version: ${junit.version}
+        scope: test
+      - groupId: com.itextpdf
+        artifactId: itextpdf
+        version: 5.5.5
+  build:
+    plugins:
+      plugin:
+        - groupId: org.apache.maven.plugins
+          artifactId: maven-compiler-plugin
+          version: 3.6.1
+          configuration:
+            source: 16
+            target: 16
+        - groupId: org.openjfx
+          artifactId: javafx-maven-plugin
+          version: 0.0.6
+          executions:
+            execution:
+              id: default-cli
+              configuration:
+                mainClass: com.example.aa/com.example.aa.Main
